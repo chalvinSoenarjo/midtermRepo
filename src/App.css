@@ -58,3 +58,32 @@
   flex-direction: column;
   justify-content: center;
 }
+
+
+
+body {
+  background-color: black;
+  color: white;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.book-list {
+  background-color: black;
+  padding: 8px;
+}
+
+.book-list li {
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.book-list li:hover,
+.book-list li.selected {
+  background-color: gray;
+}

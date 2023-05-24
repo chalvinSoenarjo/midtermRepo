@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface Props {
   books: {
@@ -14,10 +14,21 @@ interface Props {
 }
 
 export default function BookList({ books, setCurrentBookIndex }: Props) {
+  const [selectedBookId, setSelectedBookId] = useState(0);
+
+  const handleBookClick = (bookId: number) => {
+    setCurrentBookIndex(bookId);
+    setSelectedBookId(bookId);
+  };
+
   return (
-    <ul>
+    <ul className="book-list">
       {books.map((book) => (
-        <li onClick={() => setCurrentBookIndex(book.id)} key={book.id}>
+        <li
+          key={book.id}
+          onClick={() => handleBookClick(book.id)}
+          className={selectedBookId === book.id ? "selected" : ""}
+        >
           {book.name}
         </li>
       ))}
